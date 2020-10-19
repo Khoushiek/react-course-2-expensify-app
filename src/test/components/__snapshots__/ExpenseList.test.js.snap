@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should not return list of expenses 1`] = `
+<div>
+  <Connect(ExpenseListFilter) />
+  <p>
+    No Expenses
+  </p>
+</div>
+`;
+
+exports[`should return list of expenses 1`] = `
+<div>
+  <Connect(ExpenseListFilter) />
+  <h3>
+    Expenses List
+  </h3>
+  <Component
+    amount={25000}
+    createdAt={-345600000}
+    description="rent"
+    id="1"
+    key="1"
+  />
+  <Component
+    amount={250}
+    createdAt={345600000}
+    description="Gum"
+    id="2"
+    key="2"
+  />
+  <Component
+    amount={4000}
+    createdAt={0}
+    description="Credit card"
+    id="3"
+    key="3"
+  />
+</div>
+`;
