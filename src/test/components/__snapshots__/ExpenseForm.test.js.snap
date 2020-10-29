@@ -22,7 +22,7 @@ exports[`should return the expense form correctly 1`] = `
       anchorDirection="left"
       customCloseIcon={null}
       customInputIcon={null}
-      date={null}
+      date={"1970-01-01T00:00:00.000Z"}
       daySize={39}
       disabled={false}
       displayFormat={[Function]}
@@ -203,6 +203,7 @@ exports[`should return the expense form correctly with data 1`] = `
     <textarea
       onChange={[Function]}
       placeholder="Add a Expense note"
+      value=""
     />
     <button>
       Add Expense

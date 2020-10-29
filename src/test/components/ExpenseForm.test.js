@@ -39,7 +39,7 @@ test("should set the note correctly on change", () => {
   wrapper.find("textarea").simulate("change", {
     target: {value}
   });
-  expect(wrapper.state("expenseNote")).toBe(value);
+  expect(wrapper.state("note")).toBe(value);
 });
 
 test("should set the amount if valid input", () => {
@@ -71,7 +71,7 @@ test("should call submit event on form submission", () => {
     description: expenses[0].description,
     amount: expenses[0].amount,
     createdAt: expenses[0].createdAt,
-    note: expenses[0].expenseNote
+    note: expenses[0].note
   })
 });
 

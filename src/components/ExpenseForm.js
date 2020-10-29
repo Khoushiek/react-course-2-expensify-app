@@ -9,42 +9,21 @@ export default class ExpenseForm extends React.Component {
     this.state = {
       description: props.expense ? props.expense.description : "",
       amount: props.expense ? (props.expense.amount/100).toString() : "",
-      expenseNote: props.expense ? props.expense.expenseNote : "",
-      createdAt: props.expense ? moment(props.expense.createdAt) : undefined,
+      note: props.expense ? props.expense.note : "",
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
       error: ""
     }
   };
-
-  componentDidMount() {
-    console.log("Component did Mount...")
-  };
-
-  componentWillMount() {
-    console.log("Component will Mount...")
-  };
-
-  componentDidUpdate() {
-    console.log("Component did update")
-  };
-
-  componentWillUpdate() {
-    console.log("Compoent will update")
-  };
-
-  componentWillUnmount() {
-    console.log("Compoent will unmount.")
-  }
   
   onDescriptionChange = (e) => {
     const description = e.target.value;
-    console.log(description);
     this.setState(() => ({description}))
   };
 
   onNoteChange = (e) => {
-    const expenseNote = e.target.value;
-    this.setState(() => ({expenseNote}))
+    const note = e.target.value;
+    this.setState(() => ({note}))
   };
 
   onAmountChange = (e) => 
@@ -77,7 +56,7 @@ export default class ExpenseForm extends React.Component {
         description: this.state.description,
         createdAt: this.state.createdAt.valueOf(),
         amount: parseFloat(this.state.amount)*100,
-        note: this.state.expenseNote
+        note: this.state.note
       });
     }
   }
@@ -111,7 +90,7 @@ export default class ExpenseForm extends React.Component {
               isOutsideRange={() => (false)}
             />
             <textarea
-              value={this.state.expenseNote}
+              value={this.state.note}
               placeholder="Add a Expense note"
               onChange={this.onNoteChange}
             />
