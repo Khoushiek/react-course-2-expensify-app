@@ -4,13 +4,12 @@ const webpack = require('webpack');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({path: '.env.test'});
 }
 else if (process.env.NODE_ENV === 'development') {
   require('dotenv').config({path: '.env.development'});
-};
+}
 
 module.exports = (env) => {
   const isProduction = env === "production";
@@ -59,7 +58,8 @@ module.exports = (env) => {
         "process.env.FIREBASE_MESSAGING_SENDER_ID": JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
         "process.env.FIREBASE_APP_ID": JSON.stringify(process.env.FIREBASE_APP_ID),
         "process.env.FIREBASE_MEASUREMENT_ID": JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID)
-      })
+      }),
+      new webpack.DefinePlugin({ "process.env.NODE_ENV": JSON.stringify("production") })
     ],
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
