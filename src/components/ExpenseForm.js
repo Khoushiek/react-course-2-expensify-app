@@ -63,41 +63,43 @@ export default class ExpenseForm extends React.Component {
 
   render(){
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <input 
-              value={this.state.description}
-              type="text"
-              autoFocus
-              placeholder="Description"
-              onChange={
-                this.onDescriptionChange
-              }
-            />
-            <input
-              value={this.state.amount}
-              type="text"
-              placeholder="Amount"
-              onChange={this.onAmountChange}
-            />
-            <SingleDatePicker
-              date={this.state.createdAt}
-              onDateChange={this.onDateChange}
-              focused={this.state.calendarFocused}
-              onFocusChange={this.oncalendarFocusChange}
-              numberOfMonths={1}
-              isOutsideRange={() => (false)}
-            />
-            <textarea
-              value={this.state.note}
-              placeholder="Add a Expense note"
-              onChange={this.onNoteChange}
-            />
-            <button>Add Expense</button>
-        </form>
-        
-      </div>
+      <form className="form" onSubmit={this.onSubmit}>
+        {this.state.error && <p className="form-error">{this.state.error}</p>}
+        <input 
+            value={this.state.description}
+            className="text-input"
+            type="text"
+            autoFocus
+            placeholder="Description"
+            onChange={
+              this.onDescriptionChange
+            }
+          />
+          <input
+            value={this.state.amount}
+            className="text-input"
+            type="text"
+            placeholder="Amount"
+            onChange={this.onAmountChange}
+          />
+          <SingleDatePicker
+            date={this.state.createdAt}
+            onDateChange={this.onDateChange}
+            focused={this.state.calendarFocused}
+            onFocusChange={this.oncalendarFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={() => (false)}
+          />
+          <textarea
+            value={this.state.note}
+            placeholder="Add a Expense note"
+            className="text-area"
+            onChange={this.onNoteChange}
+          />
+          <div>
+            <button className="box-layout__button">Save Expense</button>
+          </div>
+      </form>
     )
   }
 };
