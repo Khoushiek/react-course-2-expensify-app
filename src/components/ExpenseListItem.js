@@ -9,13 +9,11 @@ const numberFormat = (value) =>
   }).format(value);
 
 export default (props) => (
-  <div>
-    <Link to={`/edit/${props.id}`}>
-      <h3>{props.description}</h3>
-    </Link>
-    <p>
-      {numberFormat(props.amount / 100 )}
-      &nbsp; - &nbsp;  
-      {moment(props.createdAt).format("MMMM Do YYYY")}</p>
-  </div>
+  <Link className="list-item" to={`/edit/${props.id}`}>
+    <div className="list-item__header">
+      <h3 className="list-item__title">{props.description}</h3>
+      <span className="list-item__subtitle">{moment(props.createdAt).format("MMMM Do YYYY")}</span>
+    </div>
+    <h3 className="list-item__data">{numberFormat(props.amount / 100 )}</h3>
+  </Link>
 );
