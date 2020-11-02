@@ -1,4 +1,4 @@
-import {firebase, googleAuthProvider} from "../firebase/firebase";
+import {firebase, googleAuthProvider, facebookAuthProvider} from "../firebase/firebase";
 
 export const login = (uid) => {
   return {
@@ -7,9 +7,35 @@ export const login = (uid) => {
   };
 };
 
-export const startLogin = () => {
+export const startLoginWithGoogle = () => {
   return () => {
-    return firebase.auth().signInWithPopup(googleAuthProvider);
+    return firebase.auth().signInWithPopup(googleAuthProvider).then(function(result) {
+      // Accounts successfully linked.
+      var credential = result.credential;
+      var user = result.user;
+      console.log(user);
+      // ...
+    }).catch(function(error) {
+      console.log(error);
+      // Handle Errors here.
+      // ...
+    });;
+  }
+};
+
+export const startLoginWithFacebook = () => {
+  return () => {
+    return firebase.auth().signInWithPopup(facebookAuthProvider).then(function(result) {
+      // Accounts successfully linked.
+      var credential = result.credential;
+      var user = result.user;
+      console.log(user);
+      // ...
+    }).catch(function(error) {
+      console.log(error);
+      // Handle Errors here.
+      // ...
+    });;
   }
 };
 
