@@ -37,7 +37,6 @@ firebase.auth().onAuthStateChanged((user) => {
                 history.push('/dashboard')
             }
         });
-        console.log("Logged in")
     }
     else {
         store.dispatch(logout());

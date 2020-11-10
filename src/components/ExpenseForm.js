@@ -97,7 +97,7 @@ export default class ExpenseForm extends React.Component {
             onChange={this.onNoteChange}
           />
           <div>
-            <button className="box-layout__button">Save Expense</button>
+            <button className="box-layout__button" disabled={this.props.disableClass}>Save Expense</button>
           </div>
       </form>
     )

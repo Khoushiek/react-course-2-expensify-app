@@ -13,7 +13,6 @@ export const startLoginWithGoogle = () => {
       // Accounts successfully linked.
       var credential = result.credential;
       var user = result.user;
-      console.log(user);
       // ...
     }).catch(function(error) {
       console.log(error);
@@ -29,7 +28,6 @@ export const startLoginWithFacebook = () => {
       // Accounts successfully linked.
       var credential = result.credential;
       var user = result.user;
-      console.log(user);
       // ...
     }).catch(function(error) {
       console.log(error);

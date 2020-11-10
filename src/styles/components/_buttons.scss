@@ -44,6 +44,16 @@
   }
 }
 
+.box-layout__button:disabled {
+    background: #999;
+    color: #555;
+    cursor: not-allowed;
+    background-color: #999;
+    &:hover {
+        color: #999;
+    }
+}
+
 .button--link{
     color: white;
     border: none;
@@ -65,6 +75,11 @@
 .button--facebooklogin{
     margin-top: 0.8rem;
 };
+
+.button--confimation{
+    background: #888;
+    text-decoration: none;
+}
 
 .para-text{
     margin: $s-size 0 $s-size 0;
